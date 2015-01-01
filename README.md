@@ -5,7 +5,7 @@ Design document for Notifire
 Notifire was built with node.js (server) and angular (client)
 
 	notifire/						--> one folder to contain them all
-	
+
 		server/						--> main config files for running the server
 			common/					--> common configuration files to collect features
 			features/				--> features in seperate folders
@@ -25,7 +25,7 @@ Notifire was built with node.js (server) and angular (client)
 				views/				--> the partial views
 
 # List of libraries/plugins/open-source
-## Global npms
+## Global npms (Must have for notifire to run)
 1. gulp
 2. bower
 3. nodemon
@@ -62,4 +62,5 @@ Notifire was built with node.js (server) and angular (client)
 
 # How to run notifire
 go to the server directory and run
+`npm install`
 `gulp start`

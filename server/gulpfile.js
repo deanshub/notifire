@@ -89,3 +89,4 @@ gulp.task('indexInjection', function () {
 
 gulp.task('default',['images', 'styles', 'bowerDeps', 'scripts', 'views', 'indexInjection', 'watch', 'nodemon']);
 gulp.task('start',['images', 'styles', 'bowerDeps', 'scripts', 'views', 'indexInjection', 'node']);
+gulp.task('build',['images', 'styles', 'bowerDeps', 'scripts', 'views', 'indexInjection']);
