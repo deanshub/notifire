@@ -77,7 +77,7 @@ gulp.task('copyComps', function () {
 });
 
 gulp.task('manifest', function(){
-  gulp.src(['!../client/build/bower_components/**/*','../client/build/**/*'])
+  gulp.src(['!../client/build/**/*.ejs','!../client/build/bower_components/**/*','../client/build/**/*'])
     .pipe(manifest({
       hash: true,
       preferOnline: true,
