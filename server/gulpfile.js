@@ -10,6 +10,7 @@ var bowerFiles = require('main-bower-files');
 var htmlmin = require('gulp-htmlmin');
 var bower = require('gulp-bower');
 var cp = require('child_process');
+var manifest = require('gulp-manifest');
 
 gulp.task('scripts', function () {
 	gulp.src('../client/src/scripts/**/*.js')
@@ -75,6 +76,19 @@ gulp.task('copyComps', function () {
 		.pipe(gulp.dest('../client/build/bower_components'));
 });
 
+gulp.task('manifest', function(){
+  gulp.src(['!../client/build/bower_components/**/*','../client/build/**/*'])
+    .pipe(manifest({
+      hash: true,
+      preferOnline: true,
+      network: ['http://*', 'https://*', '*'],
+      filename: 'app.manifest',
+      exclude: ['app.manifest']
+     }))
+    .pipe(gulp.dest('../client/build/'))
+    .pipe(gulp.dest('../client/src/'));
+});
+
 gulp.task('indexInjection', function () {
   var target = gulp.src('../client/src/index.ejs');
   var bowerSources = gulp.src(bowerFiles({paths:{bowerrc:'../client/.bowerrc',bowerJson:'../client/bower.json',bowerDirectory:'../client/src/bower_components'}}), {read: false});
@@ -87,6 +101,6 @@ gulp.task('indexInjection', function () {
     .pipe(gulp.dest('../client/build'));
 });
 
-gulp.task('default',['images', 'styles', 'bowerDeps', 'scripts', 'views', 'indexInjection', 'watch', 'nodemon']);
-gulp.task('start',['images', 'styles', 'bowerDeps', 'scripts', 'views', 'indexInjection', 'node']);
-gulp.task('build',['images', 'styles', 'bowerDeps', 'scripts', 'views', 'indexInjection']);
+gulp.task('default',['images', 'styles', 'bowerDeps', 'scripts', 'views', 'indexInjection', 'manifest', 'watch', 'nodemon']);
+gulp.task('start',['images', 'styles', 'bowerDeps', 'scripts', 'views', 'indexInjection', 'manifest', 'node']);
+gulp.task('build',['images', 'styles', 'bowerDeps', 'scripts', 'views', 'indexInjection', 'manifest']);
