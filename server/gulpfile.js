@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var prefix = require('gulp-autoprefixer');
 var uglify = require('gulp-uglify');
-var imagemin = require('gulp-imagemin');
+// var imagemin = require('gulp-imagemin');
 var plumber = require('gulp-plumber');
 var cssshrink = require('gulp-cssshrink');
 var nodemon = require('gulp-nodemon');
@@ -29,7 +29,7 @@ gulp.task('styles', function () {
 gulp.task('images', function () {
 	gulp.src('../client/src/images/*')
 		.pipe(plumber())
-		.pipe(imagemin())
+		// .pipe(imagemin())
 		.pipe(gulp.dest('../client/build/images'));
 });
 
