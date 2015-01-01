@@ -1,0 +1,6 @@
+*.7z
+*.zip
+/server/node_modules
+todos.txt
+/client/build
+/client/src/bower_components

@@ -1,0 +1,42 @@
+<div id="creationModal" class="modal fade" unpropogate>
+	<form class="form-horizontal" ng-submit="leafletmapCtrl.saveNotification(leafletmapCtrl.modalData)">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" ng-click="leafletmapCtrl.closeNotification()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">New notification</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="title" class="col-xs-2 control-label">Title</label>
+						<div class="col-xs-10">
+							<input type="text" ng-model="leafletmapCtrl.modalData.title" class="form-control" placeholder="Notification title" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="description" class="col-xs-2 control-label">Description</label>
+						<div class="col-xs-10">
+							<input type="text" ng-model="leafletmapCtrl.modalData.description" class="form-control" placeholder="Notification description">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="latitude" class="col-xs-2 control-label">Latitude</label>
+						<div class="col-xs-10">
+							<input type="number" step="any" ng-model="leafletmapCtrl.modalData.lat" class="form-control" placeholder="XX.XX" required>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="longitude" class="col-xs-2 control-label">Longitude</label>
+						<div class="col-xs-10">
+							<input type="number" step="any" ng-model="leafletmapCtrl.modalData.lon" class="form-control" placeholder="XX.XX" required>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" ng-click="leafletmapCtrl.closeNotification()">Cancel</button>
+					<button type="submit" class="btn btn-primary">Add notification</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
